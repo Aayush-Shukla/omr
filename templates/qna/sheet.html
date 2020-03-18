@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form action="{% url 'result' %}" method="post">
+
+
+
+        <table class="table table-striped table-dark ">
+            <tbody>
+        {% csrf_token %}
+        {% for i in noq %}
+
+
+  <tr>
+      <th scope="row">{{i}}.</th>
+        <td></td>
+       <td >
+        <input type="radio" name="{{i}}" value="A" style="margin-left:1em">
+            <label for="A">A</label>
+        <input type="radio" name="{{i}}" value="B" style="margin-left:1em">
+            <label for="B">B</label>
+        <input type="radio" name="{{i}}" value="C" style="margin-left:1em">
+            <label for="C">C</label>
+        <input type="radio" name="{{i}}" value="D" style="margin-left:1em">
+            <label for="D">D</label>
+        <input type="radio" name="{{i}}" value="!! NOT ATTEMPTED !!" checked style="display:none";>
+            </li>
+           </td>
+  </tr>
+
+
+             {% endfor %}
+
+
+            </tbody>
+        </table>
+        <input type="Submit" value="SUBMIT" class="btn btn-success" style="margin:1em">
+
+
+
+
+
+
+{% endblock %}
